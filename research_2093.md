@@ -1,0 +1,22 @@
+### Description of problem and its consequences 
+At the moment, Apinf UI allows the user to use any proxy backend path as long as it is unique. However, API Umbrella matches APIs for calls by the matching order field. As a result, calls maybe terminating in a way user is not expecting.As a worst case scenario, they ends up calling a completely different API.
+
+### Solution options
+**The first option**. Add username to namespace frontend prefixes [#1400 issue](https://github.com/apinf/platform/issues/1400)
+
+#### Pros
+1. The username is already unique that provide the unique frontend prefix by default
+2. It does not need to have special validate of the uniqueness that allows us to simplify code in the autoform hook: [delete step of validation](https://github.com/apinf/platform/blob/develop/proxy_backends/client/form/autoform.js#L49-L53) and [delete the server method](https://github.com/apinf/platform/blob/develop/proxy_backends/server/methods.js#L40-L56). 
+
+#### Cons
+1. Need to upgrade the old frontend prefix on API-umbrella side and in platform database 
+1. Need to modify UI for proxy backend form where it will explain to users how the frontend prefix will be created
+
+
+**The second option**. Implement the additional validate on the uniqueness
+
+#### Pros
+1. Don't change the current structure or UI
+
+#### Cons
+1. User have to think up the new frontend prefix, don't be sure that the nex example will be correct
