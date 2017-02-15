@@ -10,6 +10,7 @@ Let's consider this general problem in the context of two questions: how to get 
 
 #### Pros
 1. Don't need to change anything 
+
 #### Cons
 1. In the process of learning API-umbrella source code, there was found data can be stored in ElasticSearch, Kylin and PostgreSQL formats.
 If API-Umbrella team deprecates ElasticSearch as storage server then we will have to change our realisation of getting data, drawing charts and etc hastily. 
@@ -54,6 +55,7 @@ The current endpoint `/api-umbrella/v1/analytics/drilldown` can be expanded or t
 1. It allows decreasing of load on client side
 2. Client side will have only needed information
 3. Not need to do another data manipulation for using it in charts
+
 #### Cons
 1. Need to change realisation of charts and table
 2. Additional request for each chart or table
@@ -71,6 +73,7 @@ The current endpoint `/api-umbrella/v1/analytics/drilldown` can be expanded or t
 **Cons**
    - Need to create this new page on site
     
+
 2. Display only part of raw data. For example, 10 last request and button "Show more" or something else to show all raw data
 
 **Props**
