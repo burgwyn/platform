@@ -40,9 +40,9 @@ The current endpoint `/api-umbrella/v1/analytics/drilldown` can be expanded or t
 #### 2. How to manipulate data
 #### Solution options
 
-**The first option is** to send raw data from ElasticSearch to Meteor
+**The first option is** to fetch raw data from ElasticSearch
 #### Pros 
-1. It needs only one request to get data from storage for all charts & table
+1. It needs only one request to fetch data for all charts & table
 
 #### Cons 
 1. Data will be grouped on client-side
@@ -63,7 +63,7 @@ The current endpoint `/api-umbrella/v1/analytics/drilldown` can be expanded or t
  
 #### A suggestion for "Analytics data" table
 
-1. Using for that the separate page "Logging page" for example
+The first one is using for that the separate page "Logging page" for example
 
 **Pros**
    - In future, this page can contain filter and sort options for this data 
@@ -74,9 +74,9 @@ The current endpoint `/api-umbrella/v1/analytics/drilldown` can be expanded or t
    - Need to create this new page on site
     
 
-2. Display only part of raw data. For example, 10 last request and button "Show more" or something else to show all raw data
+The second one is to display only part of raw data. For example, 10 last request and button "Show more" or something else to show all raw data
 
-**Props**
+**Pros**
    - Display detail information when it's really needed
    - It allows decreasing of load on client side partly
 
