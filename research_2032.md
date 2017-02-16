@@ -3,6 +3,7 @@ We need a way link to the analytics data to particular API ID. This allows us to
 
 ### Solution options
 Now it can not be resolved on the platform side via particular API ID. It depends on a structure of ElasticSearch index which doesn't support storage of API ID. [Issue] (https://github.com/NREL/api-umbrella/issues/25)
+
 A suggestion is using the frontend prefix.
 
 #### Pros
