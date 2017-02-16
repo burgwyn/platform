@@ -8,8 +8,10 @@ All data which are available on the analytics page are available via REST API as
 
 ### Host
 - https://nightly.apinf.io:3002
+
 ### Endpoint
 - `/api-umbrella/v1/analytics/drilldown.json`
+
 ### Request parameters
 - prefix=1/nightly.apinf.io:3002/
 - start_at=2017-02-09
@@ -128,7 +130,7 @@ All data which are available on the analytics page are available via REST API as
 ### Parsed response
 1. API with frontend prefix is **/ss** 
    - doesn't have the nested path because value of `terminal` is true (just hypothesis)
-   - data: `[{
+   - chart data: `[{
         x: "Thu, Feb 9, 2017",
         y: 0
    },{
@@ -146,11 +148,11 @@ All data which are available on the analytics page are available via REST API as
    },{
         x: "Thu, Feb 14, 2017",
         y: 0
-   },]`
+   }]`
 
 2. API with frontend prefix is **/alternative/**
    - has the nested path because value of `terminal` is false (just hypothesis)
-   - data: `[{
+   - chart data: `[{
         x: "Thu, Feb 9, 2017",
         y: 0
    },{
@@ -168,4 +170,4 @@ All data which are available on the analytics page are available via REST API as
    },{
         x: "Thu, Feb 14, 2017",
         y: 0
-   },]`
+   }]`
