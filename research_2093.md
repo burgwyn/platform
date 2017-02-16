@@ -1,5 +1,5 @@
 ### Description of problem and its consequences 
-At the moment, Apinf UI allows the user to use any proxy backend path as long as it is unique. However, API Umbrella matches APIs for calls by the matching order field. As a result, calls maybe terminating in a way user is not expecting.As a worst case scenario, they ends up calling a completely different API.
+At the moment, Apinf UI allows the user to use any proxy backend path as long as it is unique. However, API Umbrella matches APIs for calls by the matching order field. As a result, calls maybe terminating in a way user is not expecting. As a worst case scenario, they ends up calling a completely different API.
 
 ### Solution options
 **The first option**. Add username to namespace frontend prefixes [#1400 issue](https://github.com/apinf/platform/issues/1400)
