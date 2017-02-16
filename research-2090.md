@@ -14,7 +14,7 @@ Let's consider this general problem in the context of two questions: how to get 
 #### Cons
 1. In the process of learning API-umbrella source code, there was found data can be stored in ElasticSearch, Kylin and PostgreSQL formats.
 If API-Umbrella team deprecates ElasticSearch as storage server then we will have to change our realisation of getting data, drawing charts and etc hastily. 
-2. Security moment. (should be extended by Shaliko)
+2. Security: The requests from Platform to ElasticSearch not covered by authentication and trafic go by HTTP (not https). In current docker setup that issue "fixed" because requests to ElasticSearch allowed only from provivate network. But in development process our developers still need opened publicity ElasticSearch for work with nightly server.
 
 **The second option is** using REST API.
 
