@@ -128,6 +128,8 @@ All data which are available on the analytics page are available via REST API as
 ```
 
 ### Parsed response
+For undertanding the response, let's image that "hits_over_time" array is a table. The "cols" array contains the title of table columns. The "rows" array contains the value of each table row. The "c" array should be presented as table cell.
+
 1. API with frontend prefix is **/ss** 
    - doesn't have the nested path because value of `terminal` is true (just hypothesis)
    - chart data: `[{
