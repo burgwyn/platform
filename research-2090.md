@@ -20,7 +20,7 @@ If API-Umbrella team deprecates ElasticSearch as storage server then we will hav
 
 #### Pros
 1. Using REST API to get data we will not depend on format storage. 
-1. Security moment. (should be extended by Shaliko)
+1. Security: The requests from Platform to ElasticSearch will have authentication (admin API token) and trafic go via HTTPS.
 
 #### Cons
 1. Change method to get data
