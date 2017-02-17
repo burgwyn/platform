@@ -147,6 +147,7 @@ The `results` array contains the result values. If API-umbrella doesn't have dat
 3. Object like `{ "v": 1487030400000, "f": "Tue, Feb 14, 2017" }` contains data value in two different format: 
     - `v` is timestamp format.
     - `f` is Locale date string format. 
+
 That is why the information is duplicated in the next objects:
 
 ```json
