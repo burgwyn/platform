@@ -3,8 +3,7 @@ We are interested to have analytics about the API key usage per API. API key is 
 
 ### Research result
 
-All data which are available on the analytics page are available via REST API as well. Request to fetch data and response. The problem is to understand response structure.
-
+All data which are available on the analytics page are available via REST API as well. Request to fetch data and response below. The problem is to understand response structure.
 
 ### Host
 - https://nightly.apinf.io:3002
@@ -13,10 +12,10 @@ All data which are available on the analytics page are available via REST API as
 - `/api-umbrella/v1/analytics/drilldown.json`
 
 ### Request parameters
-- prefix=1/nightly.apinf.io:3002/
-- start_at=2017-02-09
-- end_at=2017-02-18
-- interval=day
+- prefix=`1/nightly.apinf.io:3002/`
+- start_at=`2017-02-09`
+- end_at=`2017-02-18`
+- interval=`day`
 - query=`{"condition":"AND","rules":[{"id":"api_key","field":"api_key","type":"string","input":"text","operator":"equal","value":"3uFSk7GH9vImyv5K6ia66mEoUQj4gdtfIQjA5ENb"}]}`
 
 ### Response
@@ -128,48 +127,31 @@ All data which are available on the analytics page are available via REST API as
 ```
 
 ### Parsed response
-For undertanding the response, let's image that "hits_over_time" array is a table. The "cols" array contains the title of table columns. The "rows" array contains the value of each table row. The "c" array should be presented as table cell.
+The value for table head is `hits_over_time.cols[i].label`. The "rows" array contains the value of each table row. The "c" array should be presented as table cell.
 
-1. API with frontend prefix is **/ss** 
-   - doesn't have the nested path because value of `terminal` is true (just hypothesis)
-   - chart data: `[{
-        x: "Thu, Feb 9, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 10, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 11, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 12, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 13, 2017",
-        y: 2
-   },{
-        x: "Thu, Feb 14, 2017",
-        y: 0
-   }]`
+| Date | nightly.apinf.io:3002/ss | nightly.apinf.io:3002/alternative/ |
+| ------ | ------ | ------ |
+|`rows[i].c[0].f` |`rows[i].c[1].v` | `rows[i].c[2].v` |
+| "Thu, Feb 9, 2017" | 0 | 0 |
+| "Thu, Feb 10, 2017" | 0 | 1 |
+| "Thu, Feb 11, 2017" | 0 | 0 |
+| "Thu, Feb 12, 2017" | 0 | 0 |
+| "Thu, Feb 13, 2017" | 2 | 0 |
+| "Thu, Feb 14, 2017" | 0 | 0 |
 
-2. API with frontend prefix is **/alternative/**
-   - has the nested path because value of `terminal` is false (just hypothesis)
-   - chart data: `[{
-        x: "Thu, Feb 9, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 10, 2017",
-        y: 1
-   },{
-        x: "Thu, Feb 11, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 12, 2017",
-        y: 0
-   },{
-        x: "Thu, Feb 13, 2017",
-        y: 2
-   },{
-        x: "Thu, Feb 14, 2017",
-        y: 0
-   }]`
+1. `rows[i].c[0].f` is presented as value of X axis. 
+2. `rows[i].c[1].v..rows[i].c[n].v` is presented as value of Y axis.
+3. Object like `{ "v": 1487030400000, "f": "Tue, Feb 14, 2017" }` contains value of data in two different format: `v` is timestamp, `f` is an ordinary format. That is why the information is duplicated in the next objects:
+
+```json
+    "c": [{
+        "v": 1486684800000,
+        "f": "Fri, Feb 10, 2017"
+    }, {
+        "v": 0,
+        "f": "0"
+    }, {
+        "v": 1,
+        "f": "1"
+    }]
+```
