@@ -686,13 +686,31 @@
               }
           }
       },
-      "ProxyBackends": {
+      "proxies": {
+        "name" : {
+          "label": "Name"
+        },
+        "description" : {
+          "label": "Description"
+        },
+        "type" : {
+          "label": "Type"
+        }
+      },
+      "proxyBackends": {
         "proxyId": {
           "label": "Select one proxy"
         },
         "apiUmbrella": {
-              "settings": {
-                  "append_query_string": {
+          "servers": {
+            "$": {
+              "port": {
+                "label": "API port"
+              }
+            }
+          },
+          "settings": {
+                "append_query_string": {
                     "label": "Append Query String Parameters"
                   },
                   "disable_api_key": {
@@ -726,7 +744,17 @@
                           "label": "Show rate limit in response headers"
                       }
                   }
+              },
+          "url_matches": {
+            "$": {
+              "frontend_prefix": {
+                "label": "Proxy base path"
+              },
+              "backend_prefix": {
+                "label": "API base path"
               }
+            }
+          }
           }
       },
       "organizations": {

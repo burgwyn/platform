@@ -28,4 +28,7 @@ schema = _.assign(schema, apiUmbrellaSchema, emqttSchema);
 
 Proxies.schema = new SimpleSchema(schema);
 
+// Attach translation
+Proxies.schema.i18n('schemas.proxies');
+
 Proxies.attachSchema(Proxies.schema);
