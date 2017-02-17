@@ -141,10 +141,13 @@ The value for table head is `hits_over_time.cols[i].label`. The "rows" array con
 
 1. `rows[i].c[0].f` is presented as value of X axis. 
 2. `rows[i].c[1].v..rows[i].c[n].v` is presented as value of Y axis.
-3. Object like `{ "v": 1487030400000, "f": "Tue, Feb 14, 2017" }` contains value of data in two different format: `v` is timestamp, `f` is an ordinary format. That is why the information is duplicated in the next objects:
+3. Object like `{ "v": 1487030400000, "f": "Tue, Feb 14, 2017" }` contains data value in two different format: 
+    - `v` is timestamp format.
+    - `f` is Locale date string format. 
+That is why the information is duplicated in the next objects:
 
 ```json
-    "c": [{
+    { "c": [{
         "v": 1486684800000,
         "f": "Fri, Feb 10, 2017"
     }, {
@@ -154,4 +157,5 @@ The value for table head is `hits_over_time.cols[i].label`. The "rows" array con
         "v": 1,
         "f": "1"
     }]
+    }
 ```
