@@ -127,7 +127,10 @@ All data which are available on the analytics page are available via REST API as
 ```
 
 ### Parsed response
-The value for table head is `hits_over_time.cols[i].label`. The "rows" array contains the value of each table row. The "c" array should be presented as table cell.
+The `results` array contains the result values. If API-umbrella doesn't have data which satisfy request parameters then the `results` array will be empty. 
+
+`hits_over_time.cols[i].label` contains value for table heading. 
+`hits_over_time.rows` array contains the value of each table row.
 
 | Date | nightly.apinf.io:3002/ss | nightly.apinf.io:3002/alternative/ |
 | ------ | ------ | ------ |
