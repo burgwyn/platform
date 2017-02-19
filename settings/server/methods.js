@@ -30,7 +30,6 @@ Meteor.methods({
     }
   },
   disableAccountEmailSettings () {
-    console.log('disable account email settings');
     // NOTE: This does not work
     // TODO: figure out if/how we can dynamically toggle AccountsTemplates settings
     // specifically, those related to verification email and password reset
@@ -45,7 +44,6 @@ Meteor.methods({
     // });
   },
   enableAccountEmailSettings () {
-    console.log('enable account email settings');
     // NOTE: This does not work
     // TODO: figure out if/how we can dynamically toggle AccountsTemplates settings
     // specifically, those related to verification email and password reset
@@ -82,8 +80,7 @@ Meteor.methods({
       // otherwise show an error
       const message = `Update gitHub configuration: ${error}`;
 
-      console.log(message);
-    }
+      }
   },
   updateMailConfiguration () {
     // Try if settings exist
@@ -107,7 +104,7 @@ Meteor.methods({
       const message = `Update mail configuration: ${error}`;
 
       // Show an error message
-      console.log(message);
+      
     }
   },
 });
